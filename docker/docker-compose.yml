@@ -1,0 +1,14 @@
+version: '2.3'
+
+services:
+    server:
+      build: ./image
+
+      volumes:
+        - ./config:/etc/hauk
+
+      links:
+        - memcache
+
+    memcache:
+      image: memcached:alpine
